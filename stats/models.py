@@ -32,6 +32,21 @@ class League(object):
         return True
 
 
+class Conference(object):
+    id = 0
+    name = ''
+
+    def __init__(self, id, name):
+        self.id = id
+        self.name = name
+
+    def __repr__(self):
+        return "<Conference %s object>" % self.name
+
+    def save(self):
+        return True
+
+
 class Division(object):
     id = 0
     name = ''
@@ -51,15 +66,17 @@ class Team(object):
     league = None
     season = ''
     division = None
+    conference = None
     id = 0
     global_id = 0
     city = ''
     name = ''
     alias = ''
 
-    def __init__(self, league, division, season, id, global_id, name, city, alias):
+    def __init__(self, league, division, conference, season, id, global_id, name, city, alias):
         self.league = league
         self.division = division
+        self.conference = conference
         self.season = season
         self.id = id
         self.global_id = global_id
